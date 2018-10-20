@@ -15,6 +15,7 @@ HashMap <WordGram, ArrayList<String>> myMap;
 	@Override
 	public void setTraining(String text) {
 		myMap.clear();
+		myWords = text.split("\\s+");
 		for(int i=0; i < myWords.length - (myOrder + 1); i++) {
 			WordGram wkey = new WordGram(myWords, i, i + myOrder);
 			if(! myMap.containsKey(wkey)) {
@@ -33,7 +34,7 @@ HashMap <WordGram, ArrayList<String>> myMap;
 	public ArrayList<String> getFollows(WordGram key) {
 		System.out.println("he");
 
-		if(myMap.get(key) == null) {
+		if(!myMap.containsKey(key)) {
 			throw new NoSuchElementException(key+" not in map");
 		}
 		else {

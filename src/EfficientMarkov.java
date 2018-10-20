@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 
 public class EfficientMarkov extends BaseMarkov {
 	HashMap <String, ArrayList<String>> myMap;
-	
+
 	public EfficientMarkov(int order) {
 		super(order);
 		myMap = new HashMap<String, ArrayList<String>>();
@@ -31,13 +31,13 @@ public class EfficientMarkov extends BaseMarkov {
 	}
 	@Override
 	public ArrayList<String> getFollows(String key) {
-		if(myMap.get(key) == null) {
+		if(!myMap.containsKey(key)) {
 			throw new NoSuchElementException(key+" not in map");
 		}
-		else {
-			return myMap.get(key);
-		}
-		
+
+		return myMap.get(key);
+
+
 	}
-	
+
 }
