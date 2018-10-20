@@ -25,7 +25,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 				myMap.get(wkey).add(PSEUDO_EOS);
 			}
 			else {
-				String wNext = myWords[myOrder + 1];
+				String wNext = myWords[myOrder];
 				myMap.get(wkey).add(wNext);
 			}
 		}
