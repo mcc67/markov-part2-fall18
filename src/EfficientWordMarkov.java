@@ -17,7 +17,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 		myMap.clear();
 		myWords = text.split("\\s+");
 		for(int i=0; i < myWords.length - myOrder + 1; i++) {
-			WordGram wkey = new WordGram(myWords, i, i + myOrder);
+			WordGram wkey = new WordGram(myWords, i, myOrder);
 			if(!myMap.containsKey(wkey)) {
 				myMap.put(wkey, new ArrayList<String>());
 			}
