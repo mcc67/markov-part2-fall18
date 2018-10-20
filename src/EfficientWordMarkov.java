@@ -31,6 +31,8 @@ HashMap <WordGram, ArrayList<String>> myMap;
 	}
 	@Override
 	public ArrayList<String> getFollows(WordGram key) {
+		System.out.println("he");
+
 		if(myMap.get(key) == null) {
 			throw new NoSuchElementException(key+" not in map");
 		}
