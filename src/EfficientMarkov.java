@@ -9,7 +9,7 @@ public class EfficientMarkov extends BaseMarkov {
 	 */
 	private HashMap <String, ArrayList<String>> myMap;
 	/*
-	 * Makes a parent class and initilizes the hashmap myMap.
+	 * Makes a parent class and creates the hashmap myMap.
 	 */
 	public EfficientMarkov(int order) {
 		super(order);
