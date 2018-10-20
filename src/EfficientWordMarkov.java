@@ -3,8 +3,8 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class EfficientWordMarkov extends BaseWordMarkov {
-HashMap <WordGram, ArrayList<String>> myMap;
-	
+	private HashMap <WordGram, ArrayList<String>> myMap;
+
 	public EfficientWordMarkov(int order) {
 		super(order);
 		myMap = new HashMap<WordGram, ArrayList<String>>();
@@ -40,8 +40,8 @@ HashMap <WordGram, ArrayList<String>> myMap;
 		else {
 			return myMap.get(key);
 		}
-		
+
 	}
-	
+
 }
 
