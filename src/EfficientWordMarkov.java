@@ -10,7 +10,7 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 		myMap = new HashMap<WordGram, ArrayList<String>>();
 	}
 	public EfficientWordMarkov() {
-		this(3);
+		this(2);
 	}
 	@Override
 	public void setTraining(String text) {
@@ -18,14 +18,14 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 		myWords = text.split("\\s+");
 		for(int i=0; i < myWords.length - myOrder + 1; i++) {
 			WordGram wkey = new WordGram(myWords, i, i + myOrder);
-			if(! myMap.containsKey(wkey)) {
+			if(!myMap.containsKey(wkey)) {
 				myMap.put(wkey, new ArrayList<String>());
 			}
 			if(i + myOrder == myWords.length) {
 				myMap.get(wkey).add(PSEUDO_EOS);
 			}
 			else {
-				String wNext = myWords[myOrder];
+				String wNext = myWords[i+myOrder];
 				myMap.get(wkey).add(wNext);
 			}
 		}
