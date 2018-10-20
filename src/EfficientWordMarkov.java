@@ -16,12 +16,12 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 	public void setTraining(String text) {
 		myMap.clear();
 		myWords = text.split("\\s+");
-		for(int i=0; i < myWords.length - (myOrder + 1); i++) {
+		for(int i=0; i < myWords.length - myOrder + 1; i++) {
 			WordGram wkey = new WordGram(myWords, i, i + myOrder);
 			if(! myMap.containsKey(wkey)) {
 				myMap.put(wkey, new ArrayList<String>());
 			}
-			if(i + myOrder == text.length()) {
+			if(i + myOrder == myWords.length) {
 				myMap.get(wkey).add(PSEUDO_EOS);
 			}
 			else {
@@ -32,14 +32,14 @@ public class EfficientWordMarkov extends BaseWordMarkov {
 	}
 	@Override
 	public ArrayList<String> getFollows(WordGram key) {
-		System.out.println("he");
+
 
 		if(!myMap.containsKey(key)) {
 			throw new NoSuchElementException(key+" not in map");
 		}
-		else {
-			return myMap.get(key);
-		}
+
+		return myMap.get(key);
+
 
 	}
 

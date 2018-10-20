@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 public class EfficientMarkov extends BaseMarkov {
-	HashMap <String, ArrayList<String>> myMap;
+	private HashMap <String, ArrayList<String>> myMap;
 
 	public EfficientMarkov(int order) {
 		super(order);
@@ -15,7 +15,7 @@ public class EfficientMarkov extends BaseMarkov {
 	@Override
 	public void setTraining(String text) {
 		myText = text;
-		for(int i=0; i < myText.length() - (myOrder + 1); i++) {
+		for(int i=0; i < myText.length() - myOrder + 1; i++) {
 			String wkey = myText.substring(i, i + myOrder);
 			if(! myMap.containsKey(wkey)) {
 				myMap.put(wkey, new ArrayList<String>());
